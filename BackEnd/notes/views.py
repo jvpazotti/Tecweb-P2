@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 
 from django.http import HttpResponse
 
-from .models import Note,Tag
+from .models import Artist, Note,Tag
 
 from rest_framework.decorators import api_view
 
@@ -10,7 +10,7 @@ from rest_framework.response import Response
 
 from django.http import Http404
 
-from .serializers import NoteSerializer
+from .serializers import NoteSerializer , ArtistSerializer
 
 
 def index(request):
@@ -111,7 +111,6 @@ def api_note(request, note_id):
     return Response(serialized_note.data)
 
 @api_view(['GET','POST'])
-
 def api_note_list(request):
 
     if request.method == "POST":
@@ -125,4 +124,19 @@ def api_note_list(request):
 
     serialized_notes = NoteSerializer(notes,many=True)
     return Response(serialized_notes.data)
+
+@api_view(['GET', 'POST'])
+def api_artist(request, request_id):
+    try:
+        artist = Artist.objects.get(id=request_id)
+    except Artist.DoesNotExist:
+        raise Http404()
+
+    # if request.method == 'POST':
+    #     new_note_data = request.data
+    #     note.title = new_note_data['title']
+    #     note.content = new_note_data['content']
+    #     note.save()
+    serialized_artist = ArtistSerializer(artist)
+    return Response(serialized_artist.data)
 

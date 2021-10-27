@@ -9,5 +9,6 @@ urlpatterns = [
     path('edit',views.edit,name='edit'),
     path('list_of_tags',views.list_of_tags,name='list_of_tags'),
     path('all_tags',views.all_tags,name='all_tags'),
-    path('api/notes/', views.api_note_list)
+    path('api/notes/', views.api_note_list),
+    path('api/artists',views.api_artist)
 ]
