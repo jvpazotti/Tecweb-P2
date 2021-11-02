@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['floating-mountain-04262.herokuapp.com', 'localhost', '127.0.0.
 # Application definition
 
 INSTALLED_APPS = [
-    'notes.apps.NotesConfig',
+    'notes.apps.GeniusConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

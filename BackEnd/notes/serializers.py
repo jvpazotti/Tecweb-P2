@@ -8,18 +8,18 @@ from .models import Artist, Note, Song
 #         fields = ['id', 'title', 'content']
 
 
-class ArtistSerializer(serializers.ModelSerializer):
+# class ArtistSerializer(serializers.ModelSerializer):
 
-    class Meta:
+#     class Meta:
 
-        model = Artist
-        fields=['id','name']
+#         model = Artist
+#         fields=['id','name']
 
 class SongSerializer(serializers.ModelSerializer):
 
     class Meta:
 
         model = Song
-        fields=['id','artist','name']
+        fields=['id','song_id']
 
 
